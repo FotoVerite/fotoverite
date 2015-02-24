@@ -1,5 +1,11 @@
- <%= link_to portfolio_path(portfolio), :class => 'grow' do %>
+ <%= link_to set_path(portfolio), :class => 'grow' do %>
 
   <%= image_tag(portfolio.medium_url, :class => 'portfolio-image', :alt => portfolio.title) %>
+      <div class="caption">
+        <p>
+          <%= portfolio.title %> <br/>
+          <%= pluralize(portfolio.photos.visible.count, 'photos') %>
+        </p>
+      </div>
 
 <% end %>

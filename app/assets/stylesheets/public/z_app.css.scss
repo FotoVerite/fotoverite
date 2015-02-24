@@ -70,6 +70,16 @@ a {
   margin-right:-25px;
   font-size:10px;
 }
+.caption {
+  height:100%;
+  position: relative;
+  p {
+    position: absolute;
+    font-size:50px;
+    font-family: 'Six Caps', sans-serif;
+    bottom:5px;
+  }
+}
 
 #imagelightbox {
   position: fixed;

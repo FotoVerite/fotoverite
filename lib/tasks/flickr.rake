@@ -25,7 +25,7 @@ namespace :flickr do
     for album in albums
       photos = flickr.photosets.getPhotos(:photoset_id => album.flickr_id)['photo']
       for photo in photos
-        if Photo.where(:flickr_id => photo.id).first.nil?
+        if Photo.where(:flickr_id => photo.id, :portfolio_id => album.id).first.nil?
           Photo.create(
             :flickr_id => photo.id,
             :secret => photo.secret,

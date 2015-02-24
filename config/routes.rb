@@ -6,7 +6,7 @@ Rails.application.routes.draw do
  #  end
 
   root :to => 'portfolios#index'
-  resources :portfolios
+  resources :sets, :controller => :portfolios
 
   namespace :staff do
 
@@ -23,7 +23,11 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :admins
+    resources :admins do
+      member do
+        get :delete
+      end
+    end
     resources :portfolios do
       resources :photos
     end

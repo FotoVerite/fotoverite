@@ -14,6 +14,8 @@
       <th>Title</th>
       <th>Visible</th>
       <th>Photos</th>
+      <th></th>
+
     </tr>
 
     <% @portfolios.each do |portfolio| %>
@@ -22,6 +24,7 @@
       <td><%= portfolio.title %></td>
       <td class="center"><%= link_to status_tag(portfolio.visible?), staff_portfolio_path(portfolio), :class => 'visiblity-toggle', :'data-visible' => portfolio.visible? %></td>
       <td class="center"><%= link_to(portfolio.photos.visible.count, staff_portfolio_photos_path(portfolio)) %></td>
+      <td><%= link_to 'Edit', edit_staff_portfolio_path(portfolio) %></td>
     </tr>
     <% end %>
   </table>

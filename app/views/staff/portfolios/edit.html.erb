@@ -1,38 +1,24 @@
-<% @page_title = "Edit Story: #{truncate(strip_tags(@story.headline), :length => 30)}" %>
-<% @current_tab = "staff/stories/show" %>
+<% @page_title = "Edit Portfolio: #{truncate(strip_tags(@portfolio.title), :length => 30)}" %>
 
-<%= link_to('&laquo; Back'.html_safe, staff_story_path(@story), :class => 'back-link') %>
+<%= link_to('&laquo; Back'.html_safe, staff_portfolios_path, :class => 'back-link') %>
 
-<div class="story edit">
-  <h1><%= truncate(strip_tags(@story.headline), :length => 50) %></h1>
+<div class="portfolio edit">
+  <h1><%= truncate(strip_tags(@portfolio.title), :length => 50) %></h1>
 
-  <%= render(:partial => "staff/stories/tabbed_navigation") %>
 
   <div class="tabbed-box">
-    <%= form_for([:staff, @story]) do |f| %>
+    <%= form_for([:staff, @portfolio]) do |f| %>
       <section>
         <%= render(:partial => "form", :locals => {:f => f}) %>
       </section>
-      
+
       <div class="clear"</div>
-      
-      <%= render(:partial => "body_images") %>
+
 
       <div id="operations">
-        <%= submit_tag "Update Story" %>
-        <%= cancel_button(staff_story_path(@story)) %>
+        <%= submit_tag "Update Portfolio" %>
       </div>
     </section>
     <% end %>
   </div>
 </div>
-
-<% content_for(:javascript) do %>
-<script>
-  $(document).ready(function(){
-    $('.image-url-field').click(function(){
-      this.select();
-    })
-  });
-</script>
-<% end %>

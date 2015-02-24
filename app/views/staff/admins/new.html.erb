@@ -1,0 +1,14 @@
+<% @page_title = "Create Admin" %>
+
+<%= link_to("&laquo; Back to List".html_safe, staff_admins_path, :class => 'back-link') %>
+
+<div class="admin new">
+  <h1><%= @page_title %></h1>
+
+  <%= form_for([:staff, @admin]) do |f| %>
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+    <div id="operations">
+      <%= submit_tag("Create Admin") %>
+    </div>
+  <% end %>
+</div>

@@ -29,16 +29,7 @@ class Staff::AdminsController < StaffController
   # also updates @admin.permissons.
   def update
     @admin = Admin.find(params[:id])
-    # Only values that are in protected_controllers are valid
-    params[:permissions] ||= []  # initialize if user submits no changes
-    new_permissions = params[:permissions] & Permission.protected_controllers
-    # prevent the admin from locking themselves out
-    if session[:admin_id].to_i == @admin.id && !new_permissions.include?('staff/admins')
-      # NB: you MUST add this back in since the form also disables the checkbox
-      new_permissions << 'staff/admins'
-    end
     if @admin.update_attributes(admin_params)
-      @admin.update_permissions(new_permissions)
       flash[:notice] = "Admin was successfully updated."
       redirect_to staff_admins_path
     else
@@ -55,6 +46,10 @@ class Staff::AdminsController < StaffController
     Admin.find(params[:id]).destroy
     flash[:notice] = "Admin was successfully deleted."
     redirect_to staff_admins_path
+  end
+
+  def get_nice_password
+    NicePassword.new(:length => 12, :words => 2, :digits => 2)
   end
 
   private
