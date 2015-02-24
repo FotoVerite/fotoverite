@@ -62,6 +62,7 @@ a {
 
 #copyright {
   color:white;
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
   transform: rotate(-90deg);
   position:fixed;
   bottom:35px;

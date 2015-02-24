@@ -1,8 +1,17 @@
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
-set :application, 'Fotoverite Photography'
-set :repo_url, 'git@example.com:FotoVerite/fotoverite.git'
+set :application, 'fotoverite'
+set :repo_url, 'git@github.com:FotoVerite/fotoverite.git'
+set :scm, :git
+
+set :linked_files, %w{config/database.yml}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/downloads public/images public/system}
+
+namespace :deploy do
+  after :finishing, 'deploy:cleanup'
+end
+
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
