@@ -1,0 +1,55 @@
+<% @page_title = "Portfolios" %>
+
+
+<div class="portfolios listing">
+
+  <h1>Portfolios <br />
+    Count: <%= @count %>
+  </h1>
+
+
+  <table class="list">
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Visible</th>
+      <th>Photos</th>
+    </tr>
+
+    <% @portfolios.each do |portfolio| %>
+    <tr>
+      <td><%= image_tag(portfolio.medium_url) %></td>
+      <td><%= portfolio.title %></td>
+      <td class="center"><%= link_to status_tag(portfolio.visible?), staff_portfolio_path(portfolio), :class => 'visiblity-toggle', :'data-visible' => portfolio.visible? %></td>
+      <td class="center"><%= link_to(portfolio.photos.visible.count, staff_portfolio_photos_path(portfolio)) %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <div class="pagination">
+    <%= will_paginate(@portfolios, :class => 'apple_pagination') %>
+  </div>
+
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.visiblity-toggle').click(function() {
+      var self = $(this);
+      var span = $(this).find('span');
+      visible = $(this).data('visible');
+      $.ajax({
+      url: $(this).attr('href'),
+      type: "PUT",
+      data: {portfolio: {visible : !visible}},
+      dataType: "json",
+      success: function(response) {
+        span.removeClass(visible.toString());
+        span.addClass((!visible).toString());
+        self.data('visible', !visible);
+      }
+    });
+    return false;
+
+    });
+  });
+</script>

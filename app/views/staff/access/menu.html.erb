@@ -1,0 +1,20 @@
+<% @page_title = "Main Menu" %>
+
+<%= javascript_tag("function writeText(objName, txt) { if (document.getElementById) { x = document.getElementById(objName); x.innerHTML = ''; x.innerHTML = txt; } }") %>
+
+<div id="main-menu">
+  <h2>Main Menu</h2>
+  <div id="status"></div>
+
+  <ul class="left">
+    <%= menu_link "Portfolios", staff_portfolios_path(:page => 1) %>
+  </ul>
+
+  <ul class="right">
+    <%= menu_link("Staff Administrators", staff_admins_path(:page => 1)) %>
+  </ul>
+
+  <ul class="bottom">
+  </ul>
+  <div class="clear"></div>
+</div>

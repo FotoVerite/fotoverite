@@ -1,0 +1,24 @@
+@import "base";
+
+#navigation { 
+  padding: 0; 
+  margin: 0 0 2em 0; 
+  text-align: center;
+
+  ul { 
+    padding: 0; 
+    margin: 0; 
+    list-style: none;
+  
+    li { 
+      display: inline; 
+      margin-right: 1em; 
+      color: $link_color; 
+      font-weight: bold;
+      
+      a { font-weight: normal;}
+    }
+    
+  }
+  
+}

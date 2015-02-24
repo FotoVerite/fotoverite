@@ -1,0 +1,27 @@
+<% @page_title = "Staff Login" %>
+
+<div class="access login">
+  <%= form_tag(staff_access_path) do %>
+    <dl>
+      <dt><%= label_tag('username', 'Username:') %></dt>
+      <dd><%= text_field_tag(:username, params[:username], :size => 30) %></dd>
+    </dl>
+    <dl>
+      <dt><%= label_tag('password', 'Password:') %></dt>
+      <dd><%= password_field_tag(:password, nil, :size => 30) %></dd>
+    </dl>
+    <div class="actions">
+      <%= submit_tag("Log in") %>
+      <%= link_to('Forgot Password', forgot_password_staff_access_path, :id => 'forgot-password') %>
+    </div>
+  <% end %>
+</div>
+
+<% content_for :head do %>
+  <%= javascript_include_tag('jquery.showpassword') %>
+  <script>
+    $(document).ready(function() {
+      $('input[type="password"]').showPasswordCheckbox();
+    });
+  </script>  
+<%  end %>

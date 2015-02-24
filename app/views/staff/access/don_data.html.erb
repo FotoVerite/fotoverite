@@ -1,0 +1,41 @@
+<% @page_title = "DON Imported Data" %>
+
+<%= javascript_tag("function writeText(objName, txt) { if (document.getElementById) { x = document.getElementById(objName); x.innerHTML = ''; x.innerHTML = txt; } }") %>
+
+<div id="main-menu">
+  <h2>DON Imported Data</h2>
+  <div id="status"></div>
+  
+  <ul style="float: left; margin-left: 40px; margin-right: 20px;">
+    <%= menu_link "Categories", staff_categories_path(:page => 1) %>
+    <%= menu_link "Products", staff_products_path(:page => 1) %>
+    <%= menu_link "Designers", staff_collaborators_path(:page => 1) %>
+    <%= menu_link "Collections", staff_product_groups_path(:page => 1) %>
+    <%= menu_link "Job Opportunities", staff_job_opportunities_path(:page => 1) %>
+  </ul>
+  <ul style="float: left; margin-right: 20px;">
+    <%= menu_link "Abrasion Types", staff_abrasion_types_path(:page => 1) %>
+    <%= menu_link "ACT Types", staff_act_types_path(:page => 1) %>
+    <%= menu_link "Application Types", staff_application_types_path(:page => 1) %>
+    <%= menu_link "Backing Types", staff_backing_types_path(:page => 1) %>
+    <%= menu_link "Cleaning Types", staff_cleaning_types_path(:page => 1) %>
+    <%= menu_link "Color Families", staff_color_families_path(:page => 1) %>
+  </ul>
+  <ul style="float: left; margin-right: 20px;">
+    <%= menu_link "Finish Types", staff_finish_types_path(:page => 1) %>
+    <%= menu_link "Focus On Types", staff_focus_on_types_path(:page => 1) %>
+    <%= menu_link "Maintenance Types", staff_maintenance_types_path(:page => 1) %>
+    <%= menu_link "Nonapplication Types", staff_nonapplication_types_path(:page => 1) %>
+    <%= menu_link "Pattern Scales", staff_pattern_scales_path(:page => 1) %>
+    <%= menu_link "Pattern Types", staff_pattern_types_path(:page => 1) %>
+  </ul>
+  <ul style="float: left; margin-right: 20px;">
+    <%= menu_link "Performance Types", staff_performance_types_path(:page => 1) %>
+    <%= menu_link "Profile Types", staff_profile_types_path(:page => 1) %>
+    <%= menu_link "REI Types", staff_rei_types_path(:page => 1) %>
+    <%= menu_link "Traffic Types", staff_traffic_types_path(:page => 1) %>
+    <%= menu_link "Vinyl Types", staff_vinyl_types_path(:page => 1) %>
+    <%# menu_link "Product Keywords", staff_product_keywords_path(:page => 1) %>
+  </ul>
+  <div class="clear"></div>
+</div>

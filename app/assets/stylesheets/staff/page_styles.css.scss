@@ -1,0 +1,289 @@
+@import "base";
+
+/* Style customizations for specific pages */
+
+/* Main menu */
+#main-menu {
+  margin: 50px 0;
+
+  h2 { text-align: center; }
+  h3 { text-align: center; }
+  ul { margin-top: 1em; padding: 0; list-style: none; }
+  ul li { margin-bottom: 2em; width: 200px; }
+  ul li a { display: block; padding: 1em;
+    background: $primary_color; color: #FFFFFF;
+    border: 1px solid $border; text-decoration: none; }
+  ul li a:hover { background: $primary_hover; }
+  #status { text-align: center; padding: 0.5em 1em;
+    width: 400px; height: 1.25em; margin: 0 auto;}
+
+  /* ul in a table, not floated */
+  table { width: 100%; margin-top: 1em;}
+  table tr td { border: none; width: 50%;}
+  table ul li { margin-left: 45px; }
+
+  /* ul floated, not in a table */
+  ul.left { float: left; margin-left: 250px; }
+  ul.right { float: left; margin-left: 50px; }
+  ul.center { margin-left: 390px; }
+  ul.bottom { clear: both; margin-left: 390px; }
+
+}
+
+
+/* Login / Password */
+
+/* staff/access */
+.access {
+  &.login {
+    margin: 100px 200px;
+    input[type="text"], input[type="password"] { margin-right: 1em; }
+    input[type="checkbox"] { margin-right: 0.5em; }
+    label[for="togglepassword"] { font-size: 0.8em; }
+    div.actions {
+      margin: 1em 0 0 140px;
+      input[type="submit"] { margin: 0 130px 1em 0; }
+    }
+    a#forgot-password {
+      display: inline-block;
+      font-size: 0.8em;
+    }
+  }
+}
+
+#password_idea { font-weight: bold; }
+
+
+/* object forms */
+
+.edit #basic-info, .new #basic-info { width: 510px; float: left; }
+.edit #assets, .new #assets { width: 400px; float: right; }
+.edit #assets dl , .new #assets dl { margin-bottom: 2em; }
+.edit #assets img { margin-bottom: 1em; }
+
+/* ============================ */
+/* = product group show       = */
+/* ============================ */
+
+/* line 72, ../scss/pages.scss */
+.large-product {
+  width: 165px;
+  height: 165px;
+  float: left;
+  margin-right: 25px;
+  padding-bottom: 75px;
+}
+/* line 79, ../scss/pages.scss */
+.large-product p {
+  clear: both;
+  text-align: center;
+}
+/* line 84, ../scss/pages.scss */
+.large-product img {
+  display: block;
+  margin: auto;
+  width: 165px;
+  margin-bottom: 10px;
+  -moz-box-shadow: 1px 1px 5px 1px #7d7d7d;
+  -webkit-box-shadow: 1px 1px 5px 1px #7d7d7d;
+  -o-box-shadow: 1px 1px 5px 1px #7d7d7d;
+  box-shadow: 1px 1px 5px 1px #7d7d7d;
+}
+/* line 92, ../scss/pages.scss */
+.large-product a {
+  color: #767676;
+}
+
+
+
+/* ============================ */
+/* = product group add remove = */
+/* ============================ */
+
+.simple-search {
+    margin-top:20px;
+    width:310px;
+    float:left;
+}
+/* line 72, ../scss/pages.scss */
+.product {
+  width: 125px;
+  height: 125px;
+  float: left;
+  margin-right: 35px;
+  margin-bottom: 75px;
+  position:relative;
+}
+/* line 79, ../scss/pages.scss */
+.product p {
+  clear: both;
+  text-align: center;
+}
+/* line 84, ../scss/pages.scss */
+.product img {
+  display: block;
+  margin: auto;
+  width: 125px;
+  margin-bottom: 10px;
+  -moz-box-shadow: 1px 1px 5px 1px #7d7d7d;
+  -webkit-box-shadow: 1px 1px 5px 1px #7d7d7d;
+  -o-box-shadow: 1px 1px 5px 1px #7d7d7d;
+  box-shadow: 1px 1px 5px 1px #7d7d7d;
+}
+/* line 92, ../scss/pages.scss */
+.product a {
+  color: #767676;
+}
+
+.product .product-remove-link {
+    position:absolute;
+    top:5px;
+    right:5px;
+}
+
+/* ========= */
+/* = Story = */
+/* ========= */
+
+.story {
+  dt, dd { margin-top: 20px; }
+  dt { width: 85px; }
+  input[type="text"], textarea {  }
+  #story-content { float: left; margin-right: 20px; width: 580px; }
+  #story-checkboxes { float: left; width: 300px; }
+  #related-items {
+    dt {white-space: nowrap; width: 150px; text-align: left;}
+  }
+  .tags { margin-bottom: 2em; }
+}
+
+#search-div {
+    border-top: 1px solid #999;
+    padding-top:15px;
+    margin-top:25px;
+}
+
+#search-results{
+    margin-top:15px;
+}
+
+
+/* ================= */
+/* = Press Release = */
+/* ================= */
+
+/* line 365, ../scss/pages.scss */
+.image_asset {
+  float: left;
+  width: 224px;
+  margin: 0 0 24px 24px;
+}
+/* line 369, ../scss/pages.scss */
+.image_asset.first {
+  margin-left: 0px;
+}
+
+#page_title {
+    width:720px;
+}
+#page_body {
+    width:720px;
+}
+
+
+/* Image Bank */
+
+.image-bank {
+  #image-view {
+    clear: both;
+    float: left; width: 400px; margin: 1em 20px 2em 0;
+    padding-left: 50px;
+    img { width: 224px; height: 149px; }
+    p#click-to-zoom { margin-top: 0; width: 224px; text-align: right; }
+  }
+  #image-stats { float: left; width: 450px; margin: 1em 0 2em; }
+  #references {
+    clear: both;
+    & > div { margin-bottom: 2em; }
+  }
+  h2 { text-align: left !important; margin: 0; }
+
+
+  #product-images { margin: 2em 135px;
+    .row { clear: both; overflow: auto; margin-bottom: 2em; }
+    .product-image { float: left; margin-right: 50px; width: 320px;
+      .image-type {}
+      .scale { float: right; }
+    }
+  }
+  #sku-images { margin: 2em 135px;
+    .row { clear: both; overflow: auto; margin-bottom: 2em; }
+    .sku-image { float: left; margin-right: 50px; width: 224px;
+      .image-type {}
+      .scale { float: right; }
+    }
+  }
+}
+
+
+/* ================= */
+/* = Presentations = */
+/* ================= */
+
+.presentations {
+  #presentation-content {
+    clear: both;
+    overflow: auto;
+    .left, .right {
+      float: left;
+      width: 450px;
+      margin-right: 20px;
+    }
+  }
+  div.edit label {
+    white-space: nowrap;
+  }
+  #presentation_show td {
+    vertical-align: middle;
+/*    line-height: 50px;*/
+  }
+}
+
+
+/* ================= */
+/* =    Stories    = */
+/* ================= */
+
+.story.edit {
+  section { margin: 20px 0px; }
+  section.body-images {
+    padding-top: 2em;
+    table tr td { border: 1px solid #CCCCCC; }
+    .caption { font-size: 10px; }
+    label { display: inline-block; width: 130px; font-size: 12px; }
+    input { width: 630px; }
+  }
+}
+
+
+
+/* Digest Export Data */
+
+.digest {
+  width: 700px;
+  margin: 0 auto;
+
+  a.digest-button {
+    display: block;
+    padding: 1em;
+    background: $primary_color;
+    color: #FFFFFF;
+    border: 1px solid $border;
+    text-decoration: none;
+    width: 200px;
+    margin: 2em auto;
+    &:hover { background: $primary_hover; }
+  }
+
+}
+

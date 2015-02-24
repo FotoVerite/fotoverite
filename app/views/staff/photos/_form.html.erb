@@ -1,0 +1,66 @@
+<%= error_messages_for(f.object) %>
+
+<div id="story-content">
+  <dl>
+    <dt><%= f.label 'headline' %></dt>
+    <dd><%= f.text_field(:headline, :size => 90) %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label 'author' %></dt>
+    <dd><%= f.text_field(:author, :size => 90) %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label 'Copy' %></dt>
+    <dd><%= f.text_area(:body_copy, :rows => 20, :cols => 65, :class => 'tinymce') %></dd>
+  </dl>
+  <dl class='tags'>
+     <dt><%= f.label "tag_list", 'Tags' %></dt>
+     <% tag_options = f.object.tag_list.collect{|t| {id: t, name: t}} %>
+     <dd><%= f.text_field(:tag_list, :rows => 5, :cols => 25, :data => {:load => tag_options.to_json}) %></dd>
+  </dl>
+</div>
+
+<div id="story-checkboxes" class="section">
+  <dl>
+    <dt><%= f.label 'published' %></dt>
+    <dd>
+      <%= f.check_box(:published) %>
+      <% if f.object.published? %>
+        <br /><%= f.object.published_at.strftime("%m/%e/%Y, %l:%M %p") %>
+      <% end %>
+    </dd>
+  </dl>
+  <dl>
+     <dt><%= f.label :video_token %></dt>
+     <dd><%= f.text_field(:video_token) %></dd>
+  </dl>
+
+  <dl>
+    <dt><%= f.label 'category_ids', 'Categories' %></dt>
+    <dd>
+      <%= hidden_field_tag("story[category_ids][]", "") %>
+      <ul class="checkbox-fields">
+      <% StoryCategory.order(:position).each do |category| %>
+        <% checked = @story.categories.include?(category) %>
+        <li><%= check_box_tag("story[category_ids][]", category.id, checked) %> <%= category.name %></li>
+      <% end %>
+      </ul>
+    </dd>
+  </dl>
+
+</div>
+
+<% content_for :head do %>
+  <%= tinymce(:width => 465) %>
+<% end %>
+
+<% content_for :javascript do %>
+  <script type='text/javascript'>
+  $(document).ready(function(){
+    $('#story_tag_list').tokenInput(
+      '<%= staff_tags_path %>',
+      {queryParam: 'query', theme: 'nova', tokenValue: 'name', prePopulate: $('#story_tag_list').data('load')}
+    );
+  })
+  </script>
+<% end %>

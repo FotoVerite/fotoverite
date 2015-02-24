@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fotoverite</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Six+Caps' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="header">
+  <h1 id='logo'><%= link_to 'FotoVerite', root_path %></h1>
+  <ul id='navigation'>
+    <li><%= link_to 'PORTFOLIOS', root_path %></li>
+    <li class='last'><%= mail_to 'matt@novafabrica.com', 'CONTACT' %></li>
+  </ul>
+</div>
+<span class="clear"></span>
+<div id='wrapper'>
+  <%= yield %>
+</div>
+
+<div id='triangle'></div>
+<div id="copyright">Copyright <%= Time.now.year %></div>
+</body>
+</html>

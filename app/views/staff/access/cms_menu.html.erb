@@ -1,0 +1,26 @@
+<% @page_title = "Website CMS Menu" %>
+
+<%= javascript_tag("function writeText(objName, txt) { if (document.getElementById) { x = document.getElementById(objName); x.innerHTML = ''; x.innerHTML = txt; } }") %>
+
+<div id="main-menu">
+  <h2>Website CMS Menu</h2>
+  <div id="status"></div>
+
+  <ul class="left">
+    <%= menu_link("Home Page Slides", staff_homepage_slides_path) %>
+    <%= menu_link "Stories", staff_stories_path(:page => 1) %>
+    <%= menu_link "Story Categories", staff_story_categories_path(:page => 1) %>
+    <%= menu_link "Story Tags", staff_tags_path(:page => 1) %>
+    <%= menu_link "Resource PDFs", staff_resource_pdfs_path %>
+  </ul>
+
+  <ul class="right">
+    <%= menu_link "Press Releases", staff_press_releases_path(:page => 1) %>
+    <%= menu_link "Product Images", staff_image_bank_products_path(:page => 1) %>
+    <%= menu_link "Locations", staff_locations_path %>
+    <%= menu_link "Spaces", staff_spaces_path %>
+    <%= menu_link "Page Assets", staff_page_assets_path %>
+  </ul>
+
+  <div class="clear"></div>
+</div>

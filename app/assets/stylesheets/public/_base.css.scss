@@ -1,0 +1,237 @@
+/* Fonts */
+$maharam_regular: 'MaharamRegular',Helvetica,Arial,sans-serif;
+$maharam_italic: 'MaharamItalic',Helvetica,Arial,sans-serif;
+$maharam_medium: 'MaharamMedium',Helvetica,Arial,sans-serif;
+$maharam_mediumitalic: 'MaharamMediumItalic',Helvetica,Arial,sans-serif;
+$maharam_bold: 'MaharamBold',Helvetica,Arial,sans-serif;
+$maharam_bolditalic: 'MaharamBoldItalic',Helvetica,Arial,sans-serif;
+$unicons: 'unicons',Helvetica,Arial,sans-serif;
+
+/* Colors */
+$black: #000000;
+$grey3: #333333;
+$grey6: #666666;
+$grey9: #999999;
+$grey12: #CCCCCC;
+$white: #FFFFFF;
+
+$site_white: #FFFFFF;
+$site_grey: #edede8;
+$site_red: #FF0000;
+$site_black: #000000;
+$site_dark_red: #CC0000;
+
+/* Site Columns */
+$column: 124px;
+$gutter: 24px;
+
+$columns1: ($column * 1) + ($gutter * 0); /* 124px */
+$columns2: ($column * 2) + ($gutter * 1); /* 272px */
+$columns3: ($column * 3) + ($gutter * 2); /* 420px */
+$columns4: ($column * 4) + ($gutter * 3); /* 568px */
+$columns5: ($column * 5) + ($gutter * 4); /* 716px */
+$columns6: ($column * 6) + ($gutter * 5); /* 864px */
+$columns7: ($column * 7) + ($gutter * 6); /* 1012px */
+$columns8: ($column * 8) + ($gutter * 7); /* 1160px */
+
+$site_width: $columns8 + ($gutter * 4); /* 1256px */
+
+/* Alt. Nested Columns */
+/* Uses a different grid inside a right shaded box $columns6 wide */
+/* Used mostly for account, cart, checkout, etc. */
+
+$alt_column: 102px;
+$alt_gutter: 36px;
+
+$alt_columns1: ($alt_column * 1) + ($alt_gutter * 0); /* 102px */
+$alt_columns2: ($alt_column * 2) + ($alt_gutter * 1); /* 240px */
+$alt_columns3: ($alt_column * 3) + ($alt_gutter * 2); /* 378px */
+$alt_columns4: ($alt_column * 4) + ($alt_gutter * 3); /* 516px */
+$alt_columns5: ($alt_column * 5) + ($alt_gutter * 4); /* 654px */
+$alt_columns6: ($alt_column * 6) + ($alt_gutter * 5); /* 792px */
+
+$alt_width: $columns6; /* 864px */
+
+
+.clear { display: block; clear: both; }
+
+@mixin hide-text { text-indent: -9999px; overflow: hidden; }
+
+@mixin box-shadow($hor, $vert, $blur, $color) {
+  -webkit-box-shadow: $hor $vert $blur $color;
+  -o-box-shadow: $hor $vert $blur $color;
+  box-shadow: $hor $vert $blur $color;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin backface-visibility($visibility) {
+  -webkit-backface-visibility: $visibility;
+  backface-visibility: $visibility;
+}
+
+@mixin box-sizing($sizing) {
+  -webkit-box-sizing: $sizing;
+  box-sizing: $sizing;
+}
+
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+}
+
+@mixin transition($style) {
+  -webkit-transition: $style;
+  transition: $style;
+}
+
+@mixin animated() {
+  -webkit-animation-duration: 1s;
+       -o-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@mixin flip-up() {
+  transition: all 0.2s ease-out;
+  -webkit-transform: rotateY(0deg) rotateX(0deg);
+  transform: rotateY(0deg) rotateX(0deg);
+}
+
+@mixin flip-down() {
+  transition: all 0.2s ease-out;
+  -webkit-transform: rotateY(180deg) rotateX(0deg);
+  transform: rotateY(180deg) rotateX(0deg);
+}
+
+
+@mixin transition($property, $duration: 0, $timing: ease, $delay: 0) {
+  -webkit-transition: $property $duration $timing $delay;
+  transition: $property $duration $timing $delay;
+}
+
+@mixin general-text-input {
+  background: #FFF;
+  color: #000;
+  border: 2px #E5E5E1 solid;
+  @include border-radius(5px);
+  @include transition(border, 250ms, ease-out);
+  -webkit-appearance: none; /* don't let iPhone/iPad override CSS */
+
+  height: 21px;
+  font: 16px $maharam_regular;
+  margin: 0 0 12px;
+  padding: 6px 5px 10px 5px;
+  width: $alt_columns3 - 10px - 4px;
+
+  &:focus {
+    outline: none;
+    border: 2px black solid;
+  }
+}
+
+@mixin radio-button-list {
+  /* for use with ul and ol */
+  list-style: none;
+  li {
+    margin-right: 1em;
+    input[type="radio"] {
+      margin: 0 6px 0 0;
+    }
+    label {
+      display: inline;
+      margin: 0;
+      color: #000;
+    }
+  }
+}
+
+@mixin general-button {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  border: 0;
+  -webkit-appearance: none; /* don't let iPhone/iPad override button CSS */
+  -webkit-font-smoothing: antialiased;
+  &:hover { cursor: pointer; }
+}
+
+@mixin large-button {
+  @include general-button;
+  font: 12px/12px $maharam_medium;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  @include border-radius(4px);
+  width: 130px;
+  padding: 14px 0 14px 0;
+}
+
+@mixin small-button {
+  @include general-button;
+  font: 11px/11px $maharam_medium;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  @include border-radius(4px);
+  padding: 6px 14px 6px 14px;
+}
+
+@mixin light-button-coloring {
+  background: #B3B3AF;
+  color: $white;
+  border: none;
+  &:hover {
+    background: #000;
+  }
+}
+
+@mixin red-button-coloring {
+  background: $site_dark_red;
+  color: $white;
+  border: none;
+  &:hover {
+   background: $site_red;
+  }
+}
+
+@mixin grey-button-coloring {
+  background: $grey12;
+  color: $white;
+  border: none;
+  &:hover {
+    background: $black;
+  }
+}
+
+@mixin overlay-structure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3px 10px 10px 10px;
+  @include border-radius(4px);
+}
+
+@mixin light-overlay-coloring {
+  background: #CCCCCC;
+  border-top: 1px solid #E5E5E1;
+  border-right: 1px solid #CCCCC8;
+  border-bottom: 1px solid #BFBFBB;
+  border-left: 1px solid #CCCCC8;
+}
+
+@mixin white-outlined-coloring {
+  background: #FFF;
+  color: #999996;
+  border: 2px solid #B3B3AF;
+}
+
+@mixin contrast-box {
+  background: $site_grey;
+  margin: 0 0 $gutter 0;
+  @include border-radius(5px);
+}

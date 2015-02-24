@@ -1,0 +1,30 @@
+@import "base";
+
+/* Pagination Styles */
+
+.pagination { clear: both; }
+
+/* Apple style pagination */
+
+.apple_pagination { 
+  background: #F1F1F1; 
+  border: 1px solid #E5E5E5;
+  text-align: center; 
+  padding: 0.5em; 
+  font-size: 12px;
+
+  a, span { 
+    padding: 0.2em 0.3em;
+    &.disabled { color: #CCCCCC; }
+  }
+  a {
+    text-decoration: none; color: black;
+    &:hover { text-decoration: underline; }
+  }
+  em.current { 
+    font-weight: bold;
+    background: transparent url(image_path("staff_ui/apple-circle.gif")) no-repeat 50% 50%; 
+    padding:3px 4px;
+  }
+  
+}

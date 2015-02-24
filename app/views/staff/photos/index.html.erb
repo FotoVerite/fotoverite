@@ -1,0 +1,53 @@
+<% @page_title = "Portfolios" %>
+
+<%= link_to 'back', staff_portfolios_path %>
+<div class="portfolios listing">
+
+  <h1>Photos for <%= @portfolio.title %> <br />
+  Count: <%= @count %>
+  </h1>
+
+
+  <table class="list">
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Visible</th>
+    </tr>
+
+    <% @photos.each do |photo| %>
+    <tr>
+      <td><%= image_tag(photo.medium_url) %></td>
+      <td><%= photo.title %></td>
+      <td class="center"><%= link_to status_tag(photo.visible?), staff_portfolio_photo_path(photo.portfolio, photo), :class => 'visiblity-toggle', :'data-visible' => photo.visible? %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <div class="pagination">
+    <%= will_paginate(@photos, :class => 'apple_pagination') %>
+  </div>
+
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.visiblity-toggle').click(function() {
+      var self = $(this);
+      var span = $(this).find('span');
+      visible = $(this).data('visible');
+      $.ajax({
+      url: $(this).attr('href'),
+      type: "PUT",
+      data: {photo: {visible : !visible}},
+      dataType: "json",
+      success: function(response) {
+        span.removeClass(visible.toString());
+        span.addClass((!visible).toString());
+        self.data('visible', !visible);
+      }
+    });
+    return false;
+
+    });
+  });
+</script>

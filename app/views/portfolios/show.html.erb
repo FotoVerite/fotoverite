@@ -1,0 +1,41 @@
+<div class="photo-container">
+  <%= render :partial => 'photo', :collection => @photos %>
+</div>
+ 
+<div id="infinite-scrolling">
+  <%= will_paginate @photos %>
+</div>
+
+<script type="text/javascript">
+var $lightBox;
+$(document).ready(function() {
+
+    var activityIndicatorOn = function()
+    {
+      $( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
+    },
+    activityIndicatorOff = function()
+    {
+      $( '#imagelightbox-loading' ).remove();
+    },
+
+
+    // OVERLAY
+
+    overlayOn = function()
+    {
+      $( '<div id="imagelightbox-overlay"></div>' ).appendTo( 'body' );
+    },
+    overlayOff = function()
+    {
+      $( '#imagelightbox-overlay' ).remove();
+    }
+   $lightBox = $('.photo-container a').imageLightbox(
+    {
+      onStart:   function() { overlayOn(); },
+      onEnd:     function() { overlayOff(); activityIndicatorOff(); },
+      onLoadStart: function() { activityIndicatorOn(); },
+      onLoadEnd:   function() { activityIndicatorOff(); }
+    });
+ });
+</script>

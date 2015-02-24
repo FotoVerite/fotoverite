@@ -1,0 +1,183 @@
+@import "base";
+
+/* Example tokeninput style #2: nova Style */
+
+fieldset.token-input-nova {
+  position: relative;
+  padding: 0;
+  margin: 5px 0;
+  background: #fff;
+  width: 100px;
+  border: 1px solid #A4BDEC;
+  @include border-radius(10px);
+  
+  &.token-input-dropdown-nova {
+    @include border-radius(10px 10px 0 0);
+    @include box-shadow(0, 5px, 20px, rgba(0,0,0,0.25));
+  }
+}
+
+ul.token-input-list-nova {
+  overflow: hidden;
+  height: auto !important;
+  height: 1%;
+  cursor: text;
+  font: 12px $staff_sans_serif;
+  min-height: 1px;
+  z-index: 999;
+  margin: 0;
+  padding: 3px;
+  border: 1px solid #aaa;
+  width: 467px;
+  
+  &.error {
+    border: 1px solid #C52020;
+  }
+  li {
+    list-style-type: none;
+  }
+}
+
+li.token-input-token-nova {
+}
+
+/* TOKENS */
+
+li.token-input-token-nova {
+  font: 12px $staff_sans_serif;
+  overflow: hidden;
+  height: 16px;
+  margin: 3px;
+  padding: 0 10px;
+  background: #EDEDE8;
+  color: #000;
+  cursor: default;
+  border: 1px solid #ddd;
+  @include border-radius(15px);
+  float: left;
+
+  p {
+    display: inline;
+    padding: 0;
+    margin: 0;
+  }
+  span {
+    color: #a6b3cf;
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+li.token-input-highlighted-token-nova {
+  background-color: #EDEDE8;
+  border: 1px solid #ECECE7;
+  color: #000;
+
+  span.token-input-delete-token-nova {
+    color: #000;
+  }
+}
+
+li.token-input-selected-token-nova {
+  background-color: #fd8913;
+  border: 1px solid transparent;
+  color: #fff;
+
+  span.token-input-delete-token-nova {
+    color: #fff;
+  }
+}
+
+li.token-input-input-token-nova {
+  border: none;
+  background: transparent;
+  float: left;
+  padding: 0;
+  margin: 0;
+  
+  input {
+    border: 0;
+    width: 100px;
+    padding: 3px;
+    background-color: transparent;
+    margin: 0;
+  }
+}
+
+div.token-input-dropdown-nova {
+  width: 457px;
+  position: absolute;
+  border: 1px solid #A4BDEC;
+  border-top: none;
+  left: -1px;
+  right: -1px;
+  background-color: #fff;
+  overflow: hidden;
+  cursor: default;
+  font: 12px $staff_sans_serif;
+  padding: 5px;
+  @include border-radius(0 0 10px 10px);
+  @include box-shadow(0, 5px, 20px, rgba(0,0,0,0.25));
+  clip:rect(0px, 1000px, 1000px, -10px);
+  
+  p {
+    font-size: 12px;
+    margin: 0;
+    padding: 0 5px;
+    font-style: italic;
+    color: #aaa;
+  }
+  
+  h3.token-input-dropdown-category-nova {
+    font: bold 12px $staff_sans_serif;
+    border: none;
+    padding: 0 5px;
+    margin: 0;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    
+    li {
+      list-style-type: none;
+      cursor: pointer;
+      background: none;
+      background-color: #fff;
+      margin: 0;
+      padding: 0 0 0 25px;
+    
+      &.token-input-dropdown-item-nova {
+        background-color: #fff;
+        &.odd {
+          background-color: #ECF4F9;
+          @include border-radius(15px);
+        }
+        span.token-input-dropdown-item-description-nova {
+          float: right;
+          font-size: 12px;
+          font-style: italic;
+          padding: 0 10px 0 0;
+          color: #999;
+        }
+      
+      }
+      strong {
+        font-weight: bold;
+        text-decoration: underline;
+        font-style: none;
+      }
+      
+      &.token-input-selected-dropdown-item-nova, &.token-input-selected-dropdown-item-nova.odd {
+        background-color: #598bec;
+        color: #fff;
+        @include border-radius(15px);
+        
+        span.token-input-dropdown-item-description-nova {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
