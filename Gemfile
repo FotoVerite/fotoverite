@@ -41,6 +41,8 @@ group :development, :test do
   gem "capistrano-bundler"
   gem "capistrano-rails"
   gem 'capistrano-maintenance', github: "capistrano/maintenance", require: false
+  gem 'capistrano-passenger'
+
   gem 'factory_girl_rails'
   gem 'ffaker'
 end

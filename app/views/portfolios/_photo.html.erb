@@ -1,4 +1,4 @@
- <%= link_to photo.large_url do %>
+ <%= link_to photo.large_url, :class => 'grow' do %>
 
   <%= image_tag(photo.medium_url, :class => 'photo-image', :alt => photo.title) %>
 

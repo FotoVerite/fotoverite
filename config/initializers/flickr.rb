@@ -1,7 +1,7 @@
 require 'flickraw'
 
-FlickRaw.api_key="3993b4af3ad03a4d4b40f61f9d891448"
-FlickRaw.shared_secret="fe67cf38024eb0ca"
+FlickRaw.api_key="5c6ee06d70e8159f6d5ee97a302af9cc"
+FlickRaw.shared_secret="42b2a92022778720"
 
-flickr.access_token = "72157650453312287-442a0f15b91bf034"
-flickr.access_secret = "858f1f45a535dcbb"
+flickr.access_token = "72157650119164084-ea86672eaaff7b6d"
+flickr.access_secret = "839a183d3c53b175"
