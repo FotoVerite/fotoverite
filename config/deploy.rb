@@ -5,7 +5,7 @@ set :application, 'fotoverite'
 set :repo_url, 'git@github.com:FotoVerite/fotoverite.git'
 set :scm, :git
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/downloads public/images public/system}
 
 namespace :deploy do
