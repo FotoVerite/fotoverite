@@ -4,10 +4,11 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 set :deploy_to, '/var/www/fotoverite_production'
+set :ssh_options, { forward_agent: true, port: 21500}
 
-role :app, %w{deploy@104.131.169.73}
-role :web, %w{deploy@104.131.169.73}
-role :db,  %w{deploy@104.131.169.73}
+role :app, %w{deploy@69.164.212.49}
+role :web, %w{deploy@69.164.212.49}
+role :db,  %w{deploy@69.164.212.49}
 
 
 # Extended Server Syntax
@@ -16,7 +17,7 @@ role :db,  %w{deploy@104.131.169.73}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'deploy@104.131.169.73', roles: %w{web app db}
+server 'deploy@69.164.212.49', roles: %w{web app db}
 
 # Custom SSH Options
 # ==================
