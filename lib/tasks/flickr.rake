@@ -1,5 +1,11 @@
 namespace :flickr do
 
+  desc "turncate albums"
+  task :truncate => [:environment] do
+    ActiveRecord::Base.connection.execute("TRUNCATE portfolios RESTART IDENTITY")
+    ActiveRecord::Base.connection.execute("TRUNCATE photos RESTART IDENTITY")
+  end
+
   desc "import albums from flickr"
   task :import_albums => [:environment] do
 
@@ -11,7 +17,7 @@ namespace :flickr do
           :flickr_id => album.id,
           :secret => album.secret,
           :title  => album.title,
-          :medium_url => FlickRaw.url(flickr.photos.getInfo(:photo_id => album.primary))
+          :medium_url => FlickRaw.url_c(flickr.photos.getInfo(:photo_id => album.primary))
         )
       end
 
@@ -31,8 +37,8 @@ namespace :flickr do
             :secret => photo.secret,
             :title  => photo.title,
             :portfolio_id => album.id,
-            :medium_url => FlickRaw.url(flickr.photos.getInfo(:photo_id => photo.id)),
-            :large_url => FlickRaw.url_b(flickr.photos.getInfo(:photo_id => photo.id))
+            :medium_url => FlickRaw.url_c(flickr.photos.getInfo(:photo_id => photo.id)),
+            :large_url => FlickRaw.url_h(flickr.photos.getInfo(:photo_id => photo.id))
 
           )
         end
