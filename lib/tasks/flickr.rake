@@ -38,7 +38,7 @@ namespace :flickr do
             :title  => photo.title,
             :portfolio_id => album.id,
             :medium_url => FlickRaw.url_c(flickr.photos.getInfo(:photo_id => photo.id)),
-            :large_url => FlickRaw.url_h(flickr.photos.getInfo(:photo_id => photo.id))
+            :large_url => FlickRaw.url_o(flickr.photos.getInfo(:photo_id => photo.id))
 
           )
         end
